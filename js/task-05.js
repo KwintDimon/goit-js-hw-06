@@ -1,17 +1,31 @@
-const inputEl = document.querySelector('#name-input');
+// const inputEl = document.querySelector('#name-input');
 
-console.log(inputEl)
+// const outputEl = document.querySelector('#name-output');
 
-const outputEl = document.querySelector('#name-output');
+// inputEl.addEventListener('input',function () {
+//   const nameEl = inputEl.value;
+//   if (nameEl !== '') {
+//     outputEl.textContent = nameEl;
+//   }
+//   else {
+//     outputEl.textContent='Anonymous';
+//   }
+// })
 
-console.log(outputEl)
+const refs = {
+  input: document.querySelector('#name-input'),
+  output: document.querySelector('#name-output'),
+};
 
-inputEl.addEventListener('input',function () {
-  const nameEl = inputEl.value;
-  if (nameEl !== '') {
-    outputEl.textContent = nameEl;
+refs.input.addEventListener('input', onInputChange);
+
+function onInputChange(event) {
+  console.log(event.currentTarget.value);
+  if (event.currentTarget.value !== '') {
+    refs.output.textContent = event.currentTarget.value;
   }
   else {
-    outputEl.textContent='Anonymous';
+    refs.output.textContent='Anonymous';
   }
-})
+  
+}
